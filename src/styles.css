@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Sans+Pro:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+html {
+  font-size: 1vw;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.App {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  width: 100%;
+  height: 100%;
+}
+.app-logo {
+  color: #fff;
+  font-size: 6vw;
+  margin: 0;
+  padding: 0;
+  font-family: 'Shadows Into Light', cursive;
+}
+/* LAYOUT STYLES FOR MAIN COMPONENTS START*/
+.categoryNav {
+  grid-column: 1/2;
+  background: #38454e;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.taskList {
+  grid-column: 2/3;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #fff;
+}
+/* LAYOUT STYLES FOR MAIN COMPONENTS END*/
+
+/*NEW TASK MODAL STYLES START */
+
+.modalBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.addTaskModal {
+  position: absolute;
+  top: 18%;
+  left: 40%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-height: 60%;
+  background: #fff;
+  font-size: 2rem;
+  border-radius: 5%;
+  box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+}
+.taskInput {
+  padding: 0.4em;
+  height: 7vh;
+  width: 80%;
+  margin: 5% auto 0 auto;
+  font-size: 2.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+.selectedPriority {
+  background-color: hsl(46, 100%, 62%);
+}
+.prioritySpan {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  margin-left: 15%;
+  margin-top: 2%;
+  font-family: 'Montserrat', sans-serif;
+}
+.prioritySpan:hover {
+  text-decoration: underline;
+}
+.priorityBttn {
+  margin-top: 5%;
+  margin-right: 2%;
+  width: fit-content;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 2.4rem;
+  color: hsl(43, 87%, 62%);
+}
+.priorityBttn:hover,
+.priorityBttn:focus {
+  border: 0;
+  outline: 0;
+}
+
+.priorityBttnIcon:hover {
+  font-size: 2.6rem;
+  text-decoration: underline;
+}
+.categoryPickerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 2% auto 0 auto;
+  overflow: auto;
+}
+.categoryTag {
+  margin-bottom: 2%;
+  font-size: 1.5rem;
+  color: #fff;
+  border: 0;
+  padding: 0.25em 0.5em;
+  border-radius: 7%;
+}
+.categoryTag:hover,
+.categoryTag:active,
+.categoryTag:focus,
+.selectedCategoryTag {
+  outline: 0;
+  border: 3px solid rgb(14, 219, 107);
+  box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.2);
+}
+.addTaskBttn {
+  align-self: flex-end;
+  width: fit-content;
+  margin: 5% 10% 5% 0;
+  padding: 0.2em 0.4em;
+  border-radius: 5%;
+  font-size: 2rem;
+  background-color: rgb(14, 219, 107);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.2);
+}
+.addTaskBttn:hover {
+  color: rgb(121, 194, 154);
+  background-color: #fff;
+}
+.addTaskBttn:disabled {
+  opacity: 0.5;
+  background-color: rgba(14, 219, 107,.6);
+  color: #fff;
+}
+/* NEW TASK MODAL STYLES END*/
+
+/* NEW CATREGORY MODAL STYLES START*/
+.addCategoryModal {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  background-color: #fff;
+  border-radius: 5%;
+  box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+}
+.categoryInput {
+  width: 80%;
+  height: 7vh;
+  margin: 5% auto 0 auto;
+  font-size: 2rem;
+  padding: 0 2% 0 2%;
+  font-family: 'Montserrat', sans-serif;
+}
+.categoryColorContainer {
+  width: 60%;
+  margin: 5% auto 0 auto;
+  padding-bottom: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+}
+.categoryColorBttn {
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 2% 3% 0 3%;
+  border-radius: 50%;
+  outline: 0;
+  border: 0;
+}
+.selectedColor {
+  border: 0;
+  border: 3px solid rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 10px;
+}
+.addCategoryBttn {
+  display: block;
+  width: fit-content;
+  margin: 5% 7% 5% 0;
+  align-self: flex-end;
+  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(14, 219, 107);
+  color: #fff;
+}
+.addCategoryBttn:hover {
+  color: rgb(14, 219, 107);
+  background-color: #fff;
+}
+.addCategoryBttn:disabled {
+  opacity: 0.5;
+  background-color: rgb(14, 219, 107);
+  color: #fff;
+}
+/* NEW CATEGORY MODAL STYLES END*/
+
+/* SHARED MODAL STLES START */
+.addCategoryModal legend,
+.addTaskModal legend{
+  width: 80%;
+  text-align: left;
+  font-size: 1.75rem;
+  font-family: 'Shadows Into Light', cursive;
+}
+.closeIcon {
+  align-self: flex-end;
+  font-size: 2rem;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  padding-bottom: 0;
+  font-weight: bolder;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+}
+.closeIcon:hover {
+  font-size: 2.25rem;
+}
+/* SHARED MODAL STLES START */
+
+/*CATEGORY NAV LINK STYLES START*/
+.categoryList {
+  margin: 10% auto 5% auto;
+  padding-left: 0;
+  width: 90%;
+  max-height: 70%;
+  overflow: auto;
+}
+.categoryNavLink {
+  display: flex;
+  align-items: center;
+  margin-top: 5%;
+  background-color: #fff;
+  padding: 0.4em;
+  width: 80%;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+}
+.navLinkLi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.deleteCatBttn {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  border-radius: 50%;
+  font-size: 2rem;
+  padding: 0em 0em 0.1em 0.2em;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(235, 245, 255);
+  border: 0;
+}
+.categoryNavLink:hover,
+.categoryNavLink:active,
+.categoryNavLink:focus {
+  background-color: rgb(198, 255, 246);
+}
+.linkName {
+  font-size: 1.5rem;
+  margin-right: 5%;
+  width: fit-content;
+  overflow: hidden;
+}
+.colorCont {
+  margin: 0 5% 0 2%;
+}
+.categoryLinkColor {
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  margin-right: 5%;
+}
+.newCategoryBttn {
+  font-size: 1.5rem;
+  padding: 0.5em 0.1em;
+  width: 11.5vw;
+  border-radius: 4px;
+  border: 0;
+  background-color: #57cc99;
+  color: #fff;
+  box-shadow: 5px 7px 13px -7px rgba(0, 0, 0, 0.85);
+  -webkit-box-shadow: 7px 5px 13px -7px rgba(0, 0, 0, 0.85);
+  -moz-box-shadow: 5px 7px 13px -7px rgba(0, 0, 0, 0.85);
+  margin-bottom: 3%;
+}
+.newCategoryBttn:hover,
+.newCategoryBttn:active,
+.newCategoryBttn:focus {
+  border: 2px solid #fff;
+  box-shadow: 5px 7px 13px -10px rgba(0, 0, 0, 0.85);
+  -webkit-box-shadow: 7px 5px 13px -10px rgba(0, 0, 0, 0.85);
+  -moz-box-shadow: 5px 7px 13px -10px rgba(0, 0, 0, 0.85);
+}
+/*CATEGORY NAV LINK STYLES END*/
+
+/* COMPLETETION NAV STYLES START*/
+.filtersHeading {
+  display: flex;
+  justify-content: flex-start;
+  width: fit-content;
+  margin-left: 15%;
+  margin-bottom: 2%;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+.completionBttnsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 auto 0 auto;
+}
+.completionBttn {
+  padding: 0.25em 0.5em;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: 0;
+  background-color: hsl(181, 49%, 90%);
+  box-shadow: 5px 7px 13px -10px rgba(0, 0, 0, 0.85);
+  -webkit-box-shadow: 7px 5px 13px -10px rgba(0, 0, 0, 0.85);
+  -moz-box-shadow: 5px 7px 13px -15px rgba(0, 0, 0, 0.85);
+}
+.completionBttn:hover {
+  background-color: #339394;
+  color: #fff;
+}
+/* COMPLETION NAV STYLES END */
+
+/* TASKLIST STYLES START*/
+.taskListContainer {
+  max-height: 60%;
+  width: 70%;
+  margin: 3% auto 0 auto;
+  padding-left: 0;
+  padding-bottom: 3%;
+  overflow: auto;
+}
+.newTaskBttn {
+  display: flex;
+  margin-left: 65%;
+  margin-top: 3%;
+  background-color: #57cc99;
+  border: 0;
+  font-size: 1.5rem;
+  padding: 0.1em 0.6em;
+  width: 11.5vw;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  border-radius: 5%;
+}
+.addIcon {
+  color: #fff;
+  margin-left: 2%;
+  font-size: 3rem;
+}
+.newTaskBttn:hover,
+.newTaskBttn:active,
+.newTaskBttn:focus {
+  border: 2px solid #38454e;
+  box-shadow: 5px 7px 13px -10px rgba(0, 0, 0, 0.85);
+  -webkit-box-shadow: 7px 5px 13px -10px rgba(0, 0, 0, 0.85);
+  -moz-box-shadow: 5px 7px 13px -10px rgba(0, 0, 0, 0.85);
+}
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 12vh;
+  margin: 2% 2% 5% auto;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.45);
+  -webkit-box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: px 3px 10px -2px rgba(0, 0, 0, 0.45);
+}
+.completedTaskItem span {
+  text-decoration: line-through;
+  color: rgba(77, 77, 77, 0.3);
+}
+.taskCheckbox {
+  margin-left: 4%;
+}
+.taskText {
+  text-align: left;
+  font-size: 1.5rem;
+  width: 72%;
+  max-height: 45%;
+  padding: 0.5% 2% 0.5% 2%;
+  overflow: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+.taskDeleteBttn {
+  margin-right: 4%;
+  color: #57cc99;
+  background-color: #38454e;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  padding: 0.25em 0.4em;
+}
+.taskDeleteBttn:hover {
+  opacity: 1;
+  background-color: #57cc99;
+  color: #38454e;
+}
+/*TASKLIST STYLES START*/
+
+/* MEDIA QUERIES START */
+@media screen and (max-width: 600px) {
+  .addCategoryModal,
+  .addCategoryBttn,
+  .addTaskModal,
+  .addTaskBttn {
+    font-size: 4vw;
+  }
+  .addCategoryModal,
+  .addTaskModal {
+    width: 80%;
+  }
+  .addTaskModal,
+  .addCategoryModal {
+    left: 10%;
+  }
+  .categoryColorBttn {
+    width: 7rem;
+    height: 7rem;
+  }
+  .categoryColorContainer {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/*MEDIA QUERIES END*/
